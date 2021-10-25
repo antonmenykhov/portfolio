@@ -20,15 +20,17 @@
             <div data-depth="0.3" class="cloud-img-3"></div>
         </div>
         <div id="cloud-4" :data-relative-input="true" class="cloud-wrapper-4">
-            <div  data-depth="0.35" class="cloud-img-4"></div>
+            <div data-depth="0.35" class="cloud-img-4"></div>
         </div>
         <div id="cloud-5" :data-relative-input="true" class="cloud-wrapper-5">
-            <div  data-depth="0.15" class="cloud-img-5"></div>
+            <div data-depth="0.15" class="cloud-img-5"></div>
         </div>
         <div id="text" :data-relative-input="true" class="text-wrapper">
-            <div data-depth="-0.01" class="text">Портфолио</div>
+            <div data-depth="-0.05" class="text">Портфолио</div>
         </div>
     </div>
+    
+    
 
 </div>
 </template>
@@ -51,7 +53,9 @@ export default {
 </script>
 
 <style>
-.main-text-wrapper{
+
+.active .moon{transform: unset;}
+.main-text-wrapper {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -59,21 +63,46 @@ export default {
     width: 100%;
     margin-left: 11%;
     font-family: Montserrat, sans-serif;
-    
+
 }
-.title{
+
+.title {
     font-weight: 600;
     font-family: Montserrat, sans-serif;
-    font-size: 80px;
+    font-size: 90px;
     text-transform: uppercase;
+    position: relative;
 }
-.sub-title{
+
+.title::before {
+    position: absolute;
+    height: 4px;
+    width: 90px;
+    border-radius: 2px;
+    background: #ff4d5a;
+
+    bottom: -30px;
+    content: '';
+}
+
+.title::after {
+    position: absolute;
+    height: 4px;
+    width: 90px;
+    border-radius: 2px;
+    background: #ff4d5a;
+    left: 60px;
+    bottom: -50px;
+    content: '';
+}
+
+.sub-title {
     font-family: Montserrat, sans-serif;
+    font-size: 30px;
+    margin-top: 80px;
 
-
-
-    
 }
+
 #cloud-1 {
     position: absolute;
     z-index: 201;
@@ -89,6 +118,7 @@ export default {
     height: 200px;
     background: url('/img/cloud1.svg') no-repeat center center / contain;
 }
+
 #cloud-2 {
     position: absolute;
     z-index: 199;
@@ -104,6 +134,7 @@ export default {
     height: 200px;
     background: url('/img/b_cloud02.svg') no-repeat center center / contain;
 }
+
 #cloud-3 {
     position: absolute;
     z-index: 201;
@@ -119,6 +150,7 @@ export default {
     height: 200px;
     background: url('/img/cloud2.svg') no-repeat center center / contain;
 }
+
 #cloud-4 {
     position: absolute;
     z-index: 201;
@@ -134,6 +166,7 @@ export default {
     height: 200px;
     background: url('/img/cloud3.svg') no-repeat center center / contain;
 }
+
 #cloud-5 {
     position: absolute;
     z-index: 199;
@@ -141,7 +174,6 @@ export default {
     width: fit-content;
     top: 22%;
     left: 500px;
-    
 
 }
 
@@ -159,7 +191,7 @@ export default {
     height: 100%;
     display: flex;
     align-items: center;
-    z-index: 200;
+    z-index: 202;
 
 }
 
@@ -176,6 +208,8 @@ export default {
 
 .moon {
     position: relative;
+    transition: all .4s;
+    transform: translateX(100vw);
 }
 
 .moon-wrapper {

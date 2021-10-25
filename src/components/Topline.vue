@@ -3,7 +3,7 @@
     <div class="logo">Anton Menukhov</div>
     <div class="icons">
         <div class="socials">
-            <a v-for="item in socials" :key="item.icon" :href="item.link"><i :class="item.icon"></i></a>
+            <a v-for="item in socials" :key="item.icon" :href="item.link" ><i :class="item.icon"></i></a>
         </div>
         <div id="menuBtn" @click="togleMenu" class="menu-btn"></div>
     </div>
@@ -12,7 +12,7 @@
     <ul>
         <li v-for="item in menu" :key="item.name">
 
-            <a class="menu-link" href="#">{{item.name}}</a>
+            <a class="menu-link"  @click="go(item.link)">{{item.name}}</a>
         </li>
     </ul>
 </nav>
@@ -20,15 +20,12 @@
 
 <script>
 export default {
+    emits: ['changeSlideByDot'],
     data() {
         return {
             menu: [{
                     name: 'Главная',
-                    link: ''
-                },
-                {
-                    name: 'Портфолио',
-                    link: ''
+                    link: 0
                 },
                 {
                     name: 'Обо мне',
@@ -36,7 +33,7 @@ export default {
                 },
                 {
                     name: 'Контакты',
-                    link: ''
+                    link: 10
                 },
             ],
             socials: [{
@@ -58,6 +55,15 @@ export default {
         }
     },
     methods: {
+       go(i){
+           this.togleMenu();
+           
+           this.$emit('changeSlideByDot', i)
+          
+           
+           
+           
+       },
         togleMenu() {
             let menuBtn = document.getElementById('menuBtn');
             menuBtn.classList.toggle('close')
@@ -192,8 +198,8 @@ nav {
 
     a {
         will-change: transform;
-        transition: transform .4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        transition-delay: .25s;
+        transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition-delay: .3s;
         text-transform: uppercase;
         display: block;
         font-size: 100px;
