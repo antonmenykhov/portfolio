@@ -20,11 +20,12 @@
 </div>
 <div class="home">
 
-    <Topline @changeSlideByDot="changeSlideByDot"  />
+    <Topline @changeSlideByDot="changeSlideByDot" />
     <div class="vertical-slider">
         <MainSlide />
-        <About />
+
         <SlidePortfolio v-for="item,i in portfolio" :key="i" :item="item" :number="i+1" />
+        <About />
         <Contacts />
     </div>
     <div class="background">
@@ -209,10 +210,11 @@ export default {
         window.removeEventListener('scroll', this.handleScroll);
     },
     mounted() {
+
         document.body.style.overflow = "hidden"
         window.scrollTo(0, 0)
         window.onload = () => {
-            document.body.style.overflow = "auto"
+            document.body.style.overflow = "visible"
             document.getElementById('boot').style.transform = "translateY(-100vh)"
             this.slides[0].classList.add('active')
         }
@@ -267,7 +269,7 @@ export default {
             setTimeout(() => {
                 window.addEventListener('scroll', this.handleScroll);
                 this.oldScrollPosition = window.pageYOffset;
-                document.body.style.overflow = "auto"
+                document.body.style.overflow = "visible"
 
             }, 800)
         }
@@ -405,6 +407,10 @@ export default {
     position: relative;
 }
 
+body {
+    background-image: linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16);
+}
+
 .background {
     background-image: linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16);
     height: 100vh;
@@ -445,6 +451,111 @@ export default {
     width: 100%;
     height: 100%;
     background: url('/img/star.svg') no-repeat center center / contain;
+}
+
+@media (max-width: 1600px) {
+
+    .moonlight,
+    .stars,
+    .moon {
+
+        width: 70vw;
+        height: 70vw;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .moonlight,
+    .stars,
+    .moon {
+        height: 750px;
+        width: 750px;
+    }
+
+    .slide-dot {
+        margin-bottom: 20px;
+        width: 15px;
+    }
+
+    .slide-dot.active {
+        width: 30px;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-dots {
+        top: unset;
+        left: 0;
+        right: 0;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .slide-dot {
+        width: 3px;
+        height: 15px;
+        margin-right: 20px;
+    }
+
+    .slide-dot.active {
+        width: 3px;
+        height: 30px;
+    }
+
+    .down {
+        bottom: 20px;
+        left: unset;
+        right: 40px;
+    }
+
+    .moonlight,
+    .stars,
+    .moon {
+        bottom: unset;
+        left: calc(-375px + 50vw);
+        right: unset;
+        top: -100px
+    }
+}
+
+@media (max-width: 500px) {
+    .text {
+        font-size: 26px;
+    }
+
+    #text {
+        display: none;
+    }
+
+    .moonlight,
+    .stars,
+    .moon {
+        bottom: unset;
+        left: calc(-375px + 50vw);
+        right: unset;
+        top: -150px
+    }
+
+    .down {
+        display: none;
+    }
+}
+
+@media(max-height: 696px){
+   
+    .moonlight,
+    .stars,
+    .moon{
+        top: -200px;
+        width: 500px;
+        left: calc(50vw - 250px);
+    }
 }
 
 .windows8 {

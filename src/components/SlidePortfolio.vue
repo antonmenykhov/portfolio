@@ -157,4 +157,78 @@ img {
     background: linear-gradient(to top left, #5c1016b9, #040d19a4);
     content: ''
 }
+@media (max-width: 1600px){
+    .image{
+        height: 500px;
+        width: 700px;
+    }
+
+    .image-wrapper{
+        width: 70%;
+    }
+}
+@media (max-width: 1024px) {
+    .image-wrapper{
+        height: 750px;
+        width: 750px;
+    }
+    .image{
+        height: 350px;
+        width: 500px;
+    }
+    .number{
+        display: none;
+    }
+    .title-p{
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .sub-title-p{
+        font-size: 24px;
+    }
+    .techs img{
+        height: 40px;
+    }
+}
+@media (max-width: 768px) {
+    .title-p{
+        max-width: 100%!important;
+        word-wrap: break-word;
+    }
+    .slide-text{
+        justify-content: flex-end;
+        height: 100%;
+        padding-bottom: 30vh;
+    }
+    .image-wrapper{
+        top: -100px;
+        left: calc(-375px + 50vw);
+    }
+}
+@media (max-width: 500px) {
+    .image-wrapper{
+        top: -150px
+    }
+    .image{
+        width: calc(100vw - 40px);
+        height: calc(66vw - 40px);
+    }
+    .title-p{
+        font-size: 30px;
+        line-height: unset;
+    }
+    .slide-text{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .sub-title-p{
+        font-size: 20px;
+    }
+}
+@media(max-height: 696px){
+    .image-wrapper{
+        top: -200px;
+    }
+    
+}
 </style>

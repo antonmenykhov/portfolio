@@ -12,10 +12,6 @@
             <i class="fab fa-telegram-plane"></i>
             @antonmenykhov
         </a>
-        <a href="https://www.instagram.com/antonmenykhov/" target="blank" class="contact">
-            <i class="fab fa-instagram"></i>
-            @antonmenykhov
-        </a>
         <a href="https://vk.com/menykhov_anton" target="blank" class="contact">
 
             <i class="fab fa-vk"></i>
@@ -24,37 +20,28 @@
 
     </div>
     <div class="image-wrapper">
-        
-        <div class="me">
-            <img src="/img/me.jpg" alt="Anton Menukhov">
+        <div class="moon"></div>
+        <div id="moon2" :data-relative-input="true" class="moon-wrapper">
+            <div data-depth="0.15" class="moon-img"></div>
+
         </div>
     </div>
 </div>
 </template>
 
 <script>
-
+import Parallax from 'parallax-js'
 export default {
+    mounted() {
 
+        new Parallax(document.getElementById('moon2')).friction(0.15, 0.15);
+    }
 }
 </script>
 
-<style>
-.me{
-    height: 490px;
-    width: 490px;
-    background: url('/img/me.jpg') no-repeat center center / cover;
-    border-radius: 50%;
-    margin: auto;
-    overflow: hidden;
-    transform: scale(0);
-    transition: all .4s;
-    
-}
+<style lang="scss">
 
-.active .me{
-    transform: scale(1);
-}
+
 .contact {
     display: flex;
     margin: 5px 0;
@@ -66,10 +53,12 @@ export default {
     transition: all .4s;
     transform: translateX(-100vw);
 }
-.active .contact{
-  transform: translateX(0);
+
+.active .contact {
+    transform: translateX(0);
 }
-.contact:hover{
+
+.contact:hover {
     color: rgba(255, 255, 255, 0.562);
 }
 
@@ -77,7 +66,13 @@ export default {
     width: 27px;
     font-size: 20px;
 }
-.space{
-  margin-top: 30px;
+
+.space {
+    margin-top: 30px;
+}
+@media (max-width: 500px) {
+    #moon2{
+        display: none;
+    }
 }
 </style>

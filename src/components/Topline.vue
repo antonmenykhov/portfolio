@@ -1,6 +1,6 @@
 <template>
 <div class="top-line">
-    <div class="logo">Anton Menukhov</div>
+    <div @click="$emit('changeSlideByDot', 0)" class="logo">Anton Menukhov</div>
     <div class="icons">
         <div class="socials">
             <a v-for="item in socials" :key="item.icon" :href="item.link" ><i :class="item.icon"></i></a>
@@ -29,26 +29,26 @@ export default {
                 },
                 {
                     name: 'Обо мне',
-                    link: ''
+                    link: 10
                 },
                 {
                     name: 'Контакты',
-                    link: 10
+                    link: 11
                 },
             ],
             socials: [{
                     icon: 'fab fa-vk',
-                    link: '',
+                    link: 'https://vk.com/menykhov_anton',
                     name: ''
                 },
                 {
-                    icon: 'fab fa-instagram',
-                    link: '',
+                    icon: 'fab fa-telegram-plane',
+                    link: 'https://t.me/antonmenykhov',
                     name: ''
                 },
                 {
-                    icon: 'fab fa-linkedin-in',
-                    link: '',
+                    icon: 'fas fa-envelope',
+                    link: 'mailto:antonmenykhov@gmail.com',
                     name: ''
                 },
             ],
@@ -197,6 +197,7 @@ nav {
     }
 
     a {
+        cursor: pointer;
         will-change: transform;
         transition: transform .5s cubic-bezier(0.165, 0.84, 0.44, 1);
         transition-delay: .3s;
@@ -234,4 +235,29 @@ nav {
 .openNav {
     transform: translateY(0);
 }
+@media (max-width: 1024px) {
+    nav a {
+        font-size: 80px;
+    }
+}
+@media (max-width: 1024px) {
+    nav a {
+        font-size: 60px;
+    }
+}
+@media (max-width: 500px) {
+    nav a {
+        font-size: 40px;
+    }
+    .socials{
+        display: none;
+    }
+    .logo{
+        font-size: 16px;
+    }
+    .top-line{
+        padding: 20px;
+    }
+}
+
 </style>
